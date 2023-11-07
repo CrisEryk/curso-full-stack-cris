@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="calculo">
+        <h2>Interrogatório Criminal</h2>
+        <br>
+        <input type="submit" value="Iniciar interrogatório">
+        <p id="resultado">Resultado</p>
+    </form>
+    <script>
+        document.getElementById('calculo').onsubmit = function(){
+            var p1 = prompt("Você telefonou para a vítima?");
+            var p2 = prompt("Você esteve no local do crime?");
+            var p3 = prompt("Você mora perto da vítima?");
+            var p4 = prompt("Você devia para a vítima?");
+            var p5 = prompt("Você já trabalhou com a vítima?");
+
+            total = 0;
+            
+            if(p1 == "sim") total++;
+            if(p2 == "sim") total++;
+            if(p3 == "sim") total++;
+            if(p4 == "sim") total++;
+            if(p5 == "sim") total++;
+
+            if (total <= 1){
+                document.getElementById("resultado").innerHTML = "Resultado: Inocente";
+            }
+            if (total == 2){
+                document.getElementById("resultado").innerHTML = "Resultado: Suspeito";
+            }
+            if (total == 3 || total == 4){
+                document.getElementById("resultado").innerHTML = "Resultado: Cúmplice";
+            }
+            if (total == 5){
+                document.getElementById("resultado").innerHTML = "Resultado: ASSASSINO!";
+            }
+            return false;
+        }
+    </script>
+</body>
+</html>

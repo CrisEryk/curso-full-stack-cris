@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="imc">
+        <h1>Cálculo do IMC</h1>
+        Informe o peso (Kg):<input type="text" id="peso">
+        <br>
+        <br>
+        Informe a altura (m):<input type="text" id="altura">
+        <br>
+        <br>
+        <input type="submit" value="Calcular IMC">
+        <br>
+        <br>
+        IMC: <input type="text" id="IMC">
+    </form>
+    <script>
+        document.getElementById('imc').onsubmit=function(){
+            var peso = document.getElementById('peso').value;
+            var altura = document.getElementById('altura').value;
+            var imc = parseFloat(peso) / (parseFloat((altura) * parseFloat(altura)));
+
+            if(imc < 18.5){
+                alert("Baixo Peso");
+            }if(imc >=18,5 && imc <25){
+                alert("Peso Normal");
+            }if(imc >=25 && imc < 30){
+                alert("Sobrepeso");
+            }if(imc >=30 && imc <35){
+                alert("obesidade grau 1");
+            }if(imc >=35 && imc <40){
+                alert("obesidade grau 2"); 
+            }if(imc >=40){
+                alert("obesidade grau 3");
+            }
+            document.getElementById('IMC').value = imc.toFixed(2);
+            return false;
+        };
+
+    </script>
+</body>
+</html>

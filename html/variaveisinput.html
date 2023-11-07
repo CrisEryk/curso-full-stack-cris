@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <fieldset>
+        <legend><h3>Soma</h3></legend>
+        <form id="calculo">
+            Número 1: <input type="number" id="n1">
+            Número 2: <input type="number" id="n2">
+            Total: <input type="number" id="total" disabled>
+            <input type="submit" value="Calcular">
+        </form>
+        <script>
+            document.getElementById('calculo').onsubmit = function(){
+                var n1 = document.getElementById('n1').value;
+                var n2 = document.getElementById('n2').value;
+                var total = parseFloat(n1) + parseFloat(n2);
+                document.getElementById('total').value = total; 
+                return false;
+            }; 
+        </script>
+    </fieldset>
+    <br>
+    <fieldset>
+    <legend><h3>Área do Quadrado</h3></legend>
+        <form id="Areadoquadrado">
+            Lado 1: <input type="number" id="l1">
+            Lado 2: <input type="number" id="l2">
+            Área total: <input type="number" id="areatotal" disabled>
+            <input type="submit" value="Calcular">
+        </form>
+        <script>
+            document.getElementById('Areadoquadrado').onsubmit = function(){
+                var l1 = document.getElementById('l1').value;
+                var l2 = document.getElementById('l2').value;
+                var total = parseFloat(l1) * parseFloat(l2);
+                document.getElementById('areatotal').value = total; 
+                return false;
+            }; 
+        </script>
+    </fieldset>
+    <br>
+    <fieldset>
+        <legend><h3>Trapezio</h3></legend>
+        <form id="trapezio">
+            Base Maior: <input type="text" id="B">
+            Base Menor: <input type="text" id="b">
+            Altura: <input type="text" id="h">
+            Área do Trapezio: <input type="number" id="areatrapezio" disabled>
+            <input type="submit" value="Calcular">
+        </form>
+        <script>
+            document.getElementById('trapezio').onsubmit = function(){
+                var B = document.getElementById('B').value;
+                var b = document.getElementById('b').value;
+                var h = document.getElementById('h').value;
+                var total = ((parseFloat(B) * parseFloat(b)) * parseFloat(h))/2;
+                document.getElementById('areatrapezio').value = total; 
+                return false;
+            }; 
+        </script>
+    </fieldset>
+    <br>
+    <fieldset><legend><h3>Juros simples</h3></legend>
+        <form id="Juros">
+            Capital: <input type="number" id="C">
+            Tempo: <input type="number" id="I">
+            Taxa: <input type="number" id="T">
+            Juros: <input type="number" id="juros" disabled>
+            <input type="submit" value="Calcular">
+        </form>
+        <script>
+            document.getElementById('Juros').onsubmit = function(){
+                var C = document.getElementById('C').value;
+                var I = document.getElementById('I').value;
+                var T = document.getElementById('T').value;
+                var Total = parseFloat(C) * parseFloat(I)/100 * parseFloat(T);
+                document.getElementById('juros').value = Total; 
+                return false;
+            };
+        </script>
+    </fieldset>
+</body>
+</html>

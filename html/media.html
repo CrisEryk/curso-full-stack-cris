@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Cálculo da média das notas</h2>
+    <h3>(Aprovado, Recuperação e Reprovado)</h3>
+        1ºNota: <input type="text" id="n1">
+        2ºNota: <input type="text" id="n2">
+        3ºNota: <input type="text" id="n3">
+        <br>
+        <br>
+        <button onclick="return media()">Calcular Média</button>
+        <br>
+        <div id="divRecuperacao">
+            Nota recuperação: <input type="text" id="nr">
+            <button onclick="return recuperacao()">Calcular Recuperação</button><br>
+            Média Recuperação: <input type="text" id="mRec" disabled>
+            Situação Final: <input type="text" id="sRec" disabled>
+        </div>
+        <br>
+        Média: <input type="text" id="media" disabled>
+        Situação: <input type="text" id="situacao" disabled>
+        <br>
+        <br>
+
+        <script>
+
+            //document.getElementById("divRecuperacao").style.display = "none";//
+
+            function media(){
+                n1 = document.getElementById('n1').value;
+                n2 = document.getElementById('n2').value;
+                n3 = document.getElementById('n3').value;
+                //Cálculo da média//
+                media = (parseFloat(n1) + parseFloat(n2) + parseFloat(n3))/3;
+
+                situacao ="";
+                //Verificação condicional
+                if(media =>7){
+                    //1ª condição para verificar se foi aprovado
+                    //alert= para exibir o texto
+                    situação = "Aprovado!";
+                }
+                else if (media =>4){
+                    //2ª condição para verificar se tá de recuperação
+                    situacao = "recuperação";
+                }
+                else{//3ª condição, se não cai na primeira e nem na segunda, logo já está reprovado
+                    situacao = "Reprovado!";
+                }
+                document.getElementById('media').value = media;
+                document.getElementById('situacao').value = situacao;
+                return false;
+            };
+            function recuperacao(){
+                var mediaAnterior = document.getElementById('media').value;
+                var notaRecuperacao = document.getElementById('nr').value;
+                mediaRecuperacao = (parseFloat(mediaAnterior) + parseFloat(notaRecuperacao))/2;
+
+                if (mediaRecuperacao >= 5){
+                    situacao = "Aprovado!";
+                }
+                else{
+                    situacao = "Reprovado!";
+                }
+                document.getElementById('mRec').value = mediaRecuperacao;
+                document.getElementById('sRec').value = situacao;
+            };
+        </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="Cadastro">
+        <h1>Login e Senha</h1>
+        Nome:<input type="text" id="login">
+        <br>
+        <br>
+        Senha:<input type="text" id="senha">
+        <br>
+        <br>
+        <input type="submit" value="LOGIN">
+    </form>
+    <script>
+        document.getElementById('cadastro').onsubmit=function(){
+            var login = document.getElementById('login').value;
+            var senha = document.getElementById('senha').value;
+
+            if(login != "Gohan" && senha == "fase2"){
+                alert("login do usuário está incorreto");
+            }
+            if(login != "Gohan" && senha == "fase2"){
+                alert("senha do usuário está incorreto");
+            }
+            if(login != "Gohan" && senha == "fase2"){
+                alert("login e senha do usuário está incorreto");
+            }
+            if(login != "Gohan" && senha == "fase2"){
+                alert("login e senha estão corretos, seja bem vindo");
+            }
+            return false;
+        };
+    </script>
+</body>
+</html>

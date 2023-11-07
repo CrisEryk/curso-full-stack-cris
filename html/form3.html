@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <style>
+        input[type=text], select {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+          }
+          input[type=password], select {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+          }
+          input[type=date], select {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+          }
+          input[type="submit"] {
+            transition: 0.4ms;
+          }
+          input[type="submit"]:hover {
+            background-color: #4CAF50; /* Green */
+            color: white;
+          }
+          input[type=submit] {
+            width: 100%;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border-color: #4CAF50;
+            border-radius: 4px;
+            cursor: pointer;
+          }
+          form{
+            border-radius: 25px;
+            border: 2px solid #4CAF50;
+            padding: 20px;
+            width: 100%;
+          }
+    </style>
+</head>
+<body>
+    <form action="form2.html">
+        <table>
+            <tr>
+             <legend><strong><h1>Dados Pessoais</h1></strong></legend>
+                 nome:<input type="text"> <br>
+                 email:<input type="text"> <br>
+                 senha:<input type="password"> <br>
+                 Data de nascimento:<input type="date"> <br>
+                 <p><input type="submit" value="Salvar"></p>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="table.html" method="get">
+        <fieldset><legend><strong><h1>Dados Pessoais</h1></strong></legend>
+            nome:<input type="text"> <br>
+            email:<input type="text"> <br>
+            senha:<input type="password"> <br>
+            Data de nascimento:<input type="date"> <br>
+            Genero:
+            <input type="radio" name="genero" value="M">Masculino
+            <input type="radio" name="genero" value="F">Feminino
+            <input type="radio" name="genero" value="O">Outros
+        </fieldset>
+        <fieldset><legend><strong><h1>Endereço</h1></strong></legend>
+            Rua:<input type="text"><br>
+            UF:
+             <select class="form-control" id="estado">
+                <option value="AC">Acre</option>
+                <option value="AL">Alagoas</option>
+                <option value="AP">Amapá</option>
+                <option value="AM">Amazonas</option>
+                <option value="BA">Bahia</option>
+                <option value="CE">Ceará</option>
+                <option value="DF">Distrito-Federal</option>
+                <option value="ES">Espírito Santo</option>
+                <option value="GO">Goiás</option>
+                <option value="MA">Maranhão</option>
+                <option value="MT">Mato Grosso</option>
+                <option value="MS">Mato Grosso do Sul</option>
+                <option value="MG">Minas Gerais</option>
+                <option value="PA">Pará</option>
+                <option value="PB">Paraíba</option>
+                <option value="PR">Paraná</option>
+                <option value="PE">Pernambuco</option>
+                <option value="PI">Piauí</option>
+                <option value="RJ">Rio de Janeiro</option>
+                <option value="RN">Rio Grande do Norte</option>
+                <option value="RS">Rio Grande do Sul</option>
+                <option value="RO">Rondônia</option>
+                <option value="RR">Roraima</option>
+                <option value="SC">Santa Catarina</option>
+                <option value="SP">São Paulo</option>
+                <option value="SE">Sergipe</option>
+                <option value="TO">Tocantins</option>
+    </select></fieldset>
+        <br>
+        <fieldset>
+            <legend><strong><h1>Escolaridade</h1></strong></legend>
+            <select>
+                <option value="EF1">Ensino Fundamental 1</option>
+                <option value="EF2">Ensino Fundamental 2</option>
+                <option value="EM">Ensino Medio</option>
+                <option value="ES">Ensino Superior</option>
+            </select>
+            <p>Qual idioma você já estudou?</p>
+            <input type="checkbox" value="portugues">Portugues
+            <input type="checkbox" value="portugues">Ingles 
+            <input type="checkbox" value="portugues">Mandarim
+            <br>
+            </fieldset>
+            <p><input type="submit" value="Salvar"></p>
+    </form>
+</body>
+</html>
