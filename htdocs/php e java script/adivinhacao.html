@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" 
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" 
+    integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" 
+    integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <div class="card container mt-2" id="cardInicio">
+        <h1>Jogo da Forca</h1>
+        <div id="c1" class="row">
+            <input class="form-control m-2 col-10" type="text" id="chave1" placeholder="Digite uma palavra">
+            <button class="form-control m-2 btn btn-secondary col-1" id="b1" onclick="adicionarPalavra(this)">+</button>
+        </div>
+        <div id="c2" class="d-none row">
+            <input class="form-control m-2 col-10" type="text" id="chave2" placeholder="Digite uma palavra">
+            <button class="form-control m-2 btn btn-secondary col-1" id="b2" onclick="adicionarPalavra(this)">+</button>
+        </div>
+        <div id="c3" class="d-none row">
+            <input class="form-control m-2 col-10" type="text" id="chave3" placeholder="Digite uma palavra">
+            <button class="form-control m-2 btn btn-secondary col-1" id="b3" onclick="adicionarPalavra(this)">+</button>
+        </div>
+        <div id="c4" class="d-none row">
+            <input class="form-control m-2 col-10" type="text" id="chave4" placeholder="Digite uma palavra">
+            <button class="form-control m-2 btn btn-secondary col-1" id="b4" onclick="adicionarPalavra(this)">+</button>
+        </div>
+        <div id="c5" class="d-none row">
+            <input class="form-control m-2 col-10" type="text" id="chave5" placeholder="Digite uma palavra">
+        </div>
+        <button class="btn btn-primary m-2" onclick="iniciar()">Iniciar</button>
+    </div>
+
+    <div class="card container mt-2 d-none" id="cardJogo">
+        <div class="m-2">
+            <div class="row">
+                    <h1 class="p-2 card" id="palavra"></h1>
+                    <h5 id="tentativas">Quantidade de tentativas: 6</h5>
+                <div class="row">
+                    <img id="imagem" src="./forca0.png" class="col-4 mb-2">
+                </div>
+        <input type="text" class="form-control" id="letra" maxlength="1">
+        <p id="letrasDigitadas">Letras Digitadas: </p>
+        <button class="m-2 btn btn-primary" onclick="verificar()">Verificar</button>
+        <button class="m-2 btn btn-sucess" onclick="reiniciar()">Reiniciar</button>
+    </div>
+
+
+<script>
+    c2 = document.getElementById("c2");
+    c3 = document.getElementById("c3");
+    c4 = document.getElementById("c4");
+    c5 = document.getElementById("c5");
+    function adicionarPalavra(botao) {
+        if(botao.id == "b1") c2.classList.remove("d-none");
+        if(botao.id == "b2") c2.classList.remove("d-none");
+        if(botao.id == "b3") c2.classList.remove("d-none");
+        if(botao.id == "b4") c2.classList.remove("d-none");
+    }
+    
+    listaChaves = [];
+    cont = 0;
+    function iniciar(){
+        if(cont == 0){
+            for(i = 1; i <=5; i++){
+                chave = document.getElementById("chave" + i).value;
+                if(chave !=""){
+                    listaChaves.push(chave);
+                    cont++;
+                }
+            }
+        }
+        if(cont){
+            chaveApoio = "";
+            posicao = Math.floor(Math.random() * cont);
+            chave = listaChaves[posicao];
+            alert(listaChaves.splice(posicao,1));
+            cont--;
+
+            for(i = 0; i < chave.lenght; i++)
+            chaveApoio +="?";
+
+            palavra = document.getElementById("palavra");
+            palavra.innerHTML = chaveApoio;
+            jogo = document.getElementById("cardJogo");
+            jogo.classList.remove("d-none");
+            cardIniciar = document.getElementById("cardInicio");
+            cardIniciar.classList.add("d-none");
+        }
+    }
+
+    qtdTentativas = 6;
+    letrasDigitadas = [];
+
+    function verificar(){
+        letra = document.getElementById("letra");
+        letrasDigitadas.push(letra.value);
+        encontrou = false;
+        for(i = 0; i < chave.lenght; i++){
+            console.log(encontrou);
+            if (letra.value == chave[i]){
+                encontrou = true;
+                chaveApoio = chaveApoio.substring(0,i) //tudo antes da posição
+                + letra.value //caractere que será trocado
+                + chaveApoio.substring(i+1); //tudo depois da posição
+            }
+        }
+        if(!encontrou){
+            qtdTentativas--;
+            mudarImagem();
+        }
+        palavra = document.getElementById ("palavra");
+        palavra.innerHTML = chaveApoio;
+        tentativas = document.getElementById("tentativas");
+        tentativas.innerHTML = "Quantidade de tentativas: " + qtdTentativas;
+        letra.value = "";
+        letra.focus();
+        finalizar();
+        funLetrasDigitadas();
+    }
+
+    /*contador = 0;
+    function verificar(){
+        letra = document.getElementById('letra');
+
+        for (let i = 0; i < chave.lenght; i++){
+            if (letra.value == chave[i]) {
+                chaveApoio = chaveApoio.substring(0, 1) + letra.value + chaveApoio.substring(i + 1, chave.lenght);
+            }
+        }
+        palavra.innerHTML = chaveApoio; 
+
+        tentativa = document.getElementById('tentativa');
+        contador++;
+        tentativa.innerHTML = contador;
+
+        letra.value = "";
+
+        if (chave == chaveApoio) {
+            alert("Parabéns. Você ganhou! :)");
+        }
+    }*/
+    function funLetrasDigitadas(){
+        frase = "Letras Digitadas: ";
+        pLetrasDigitadas = document.getElementById("letrasDigitadas");
+        for (i = 0; i < letrasDigitadas.lenght-1; i++){
+            frase += letrasDigitadas[i] + ", ";
+        }
+        frase += letrasDigitadas[i];
+        pLetrasDigitadas.innerHTML = frase;
+    }
+    function finalizar(){
+        if(!qtdTentativas){
+            jogo.classList.add("d-none");
+            alert("Fim de jogo, você perdeu :(!");
+            if(cont){
+                qtdTentativas = 6;
+                mudarImagem();
+                tentativas = document.getElementById("tentativas");
+                tentativas.innerHTML = "Quantidade de tentativas: " + qtdTentativas;
+                letrasDigitadas = [];
+                frase = "";
+                pLetrasDigitadas = document.getElementById("letrasDigitadas");
+                pLetrasDigitadas.innerHTML = "Letras Digitadas: ";
+                iniciar();
+            }
+            else{
+            location.reload(true);
+            }
+        }
+        if(chaveApoio == chave){
+            jogo.classList.add("d-none");
+            alert("Fim de jogo, você ganhou :)!");
+            if(cont){
+                qtdTentativas = 6;
+                mudarImagem();
+                tentativas = document.getElementById("tentativas");
+                tentativas.innerHTML = "Quantidade de tentativas: " + qtdTentativas;
+                letrasDigitadas = [];
+                frase = "";
+                pLetrasDigitadas = document.getElementById("letrasDigitadas");
+                pLetrasDigitadas.innerHTML = "Letras Digitadas: ";
+                iniciar();
+            }
+            else{
+            location.reload(true);
+            }
+        }
+    }
+    function  reiniciar(){
+        location.reload(true);
+    }
+    img = document.getElementById("imagem");
+    function mudarImagem(){
+        switch(qtdTentativas){
+            case 6: img.src = "forca0.png";break;
+            case 5: img.src = "forca1.png";break;
+            case 4: img.src = "forca2.png";break;
+            case 3: img.src = "forca3.png";break;
+            case 2: img.src = "forca4.png";break;
+            case 1: img.src = "forca5.png";break;
+            case 0: img.src = "forca6.png";break;
+        }
+    }
+
+</script>
+</body>
+</html>

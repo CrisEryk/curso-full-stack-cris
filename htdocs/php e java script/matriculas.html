@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" 
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" 
+    integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" 
+    integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+    <script type="text/javascript" src="matricula.js"></script>
+
+</head>
+<body>
+    <div class="card container mt-3 mb-3">
+        <div class="mt-2">
+            <h2 style="text-align: center;" class="mt-0">CADASTRO DE MATRICULAS</h2>
+        </div>
+        <form action="matricula.php" method="POST">
+            <div class="mb-3">
+                <label class="form-label">Nome*</label>
+                <input type="text" class="form-control" id="nome" name="nome" onblur="V_nome(this)" required>
+                <div id="alertaNome" class="form-text"></div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Curso*</label>
+                <input type="text" class="form-control" id="curso" name="curso" onblur="V_curso(this)" required>
+                <div id="alertaCurso" class="form-text"></div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Gênero*</label>
+                <input type="text" class="form-control" id="genero" name="genero" onblur="V_genero(this)" required>
+                <div id="alertaGenero" class="form-text"></div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Idade*</label>
+                <input type="number" class="form-control" id="idade" name="idade" onblur="V_idade(this)" required>
+                <div id="alertaIdade" class="form-text"></div>
+            </div>
+            <div class="mb-3">
+                <input type="submit" class="btn btn-primary" onblur="V_cadastrar(this)" value="Cadastrar" >
+            </div>
+        </form>
+        <!--<div class="card container mt-3 mb-3">
+            <div class="mt-2">
+                <h2 style="text-align: center;" class="mt-0">PESQUISA DE MATRICULA</h2>
+            </div>
+            <form action="matriculapesquisa.php" method="POST">
+                <div class="mb-3">
+                    <label class="form-label">Id da matricula*</label>
+                    <input type="number" min="1" class="form-control" id="id" name="id" onblur="V_pesquisa(this)" required>
+                    <div id="alertaMatricula" class="form-text"></div>
+                </div>
+                <div class="mb-3">
+                    <input type="submit" class="btn btn-primary" value="Pesquisar">
+                     <div id="alertavalor" class="form-text"></div> 
+                </div>
+            </form>
+        </div>
+        <div class="card container mt-3 mb-3">
+            <div class="mt-2">
+                <h2 style="text-align: center;" class="mt-0">DELETAR MATRICULA</h2>
+            </div>
+            <form action="excluirmatricula.php" method="POST">
+                <div class="mb-3">
+                    <label class="form-label">Id da Matricula*</label>
+                    <input type="number" class="form-control" id="id" name="id" onblur="V_produto(this)" required>
+                    <div id="alertaMatricula" class="form-text"></div>
+                </div>
+                <div class="mb-3">
+                    <input type="submit" class="btn btn-primary" value="Deletar">
+                     <div id="alertavalor" class="form-text"></div> 
+                </div>
+            </form>
+        </div>-->
+        <script>
+            function V_pesquisa(campo) {
+                if (campo.value.trim() == '') {
+                    p = document.getElementById("alertaPesquisa").innerHTML = '*Campo obrigatório';
+                    document.getElementById("alertaPesquisa").style.color = 'red';
+                } else {
+                    document.getElementById("alertaPesquisa").innerHTML = '';
+                }
+            }
+        </script>
+    </div>
+</body>
+</html>
