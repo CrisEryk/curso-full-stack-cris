@@ -2,10 +2,6 @@
 
 class Conta
 {
-    private $agencia = "";
-    private $conta = "";
-    private $saldo = "0";
-    private $senha = "";
 
     public function selecionarConta($conta, $conn){
         try{
@@ -49,11 +45,14 @@ class Conta
         }
 
     }
-    function login($a, $c, $se, $conn){
+    function login($agencia, $conta, $senha, $conn){
         try{
-            $sql = "SELECT agencia, conta, senha FROM contas WHERE conta = '$conta'";
-            $linha = $conn->selecionar($sql);
-            if($linha["agencia"] == $a && $linha ["conta"] == $c && $linha["senha"] == md5($se)){
+            /*$sql = "SELECT agencia, conta, senha FROM contas WHERE conta = '$conta'";
+            $linha = $conn->selecionar($sql);*/
+            $a = $this->getAgencia($conta, $conn);
+            $s = $this->getSenha($conta, $conn);
+            /*if($linha["agencia"] == $agencia && $linha ["conta"] == $conta && $linha["senha"] == md5($senha)){*/
+            if ($a == $agencia && $s == md5($senha)){
                 return "acesso permitido";
             }else{
                 return "acesso negado";
@@ -65,28 +64,31 @@ class Conta
         }
     }
 
-    public function getAgencia()
+    public function getAgencia($conta, $conn)
     {
-        return $this->agencia;
+        $sql = "SELECT agencia FROM contas WHERE conta = '$conta'";
+        $linha = $conn->selecionar($sql);
+        return $linha['agencia'];
     }
     public function setAgencia($agencia)
     {
-        $this->agencia = $agencia;
+        //$this->agencia = $agencia;
     }
 
-    public function getConta()
+    public function getConta($conta, $conn)
     {
-        return $this->conta;
+        $sql = "SELECT aconta FROM contas WHERE conta = '$conta'";
+        $linha = $conn->selecionar($sql);
+        return $linha['conta'];
     }
-    public function setConta($conta)
+    public function setConta($c)
     {
-        $this->conta = $conta;
+        //$this->conta = $conta;
     }
-
 
     public function setSaldo($s)
     {
-        $this->saldo = $s;
+        //$this->saldo = $s;
     } 
     function getSaldo($conta, $conn){
         $sql = "SELECT saldo FROM contas WHERE conta = $conta";
@@ -94,12 +96,14 @@ class Conta
         return $linha['saldo'];
     }
 
-    public function getSenha()
+    public function getSenha($conta, $conn)
     {
-        return $this->senha;
+        $sql = "SELECT senha FROM contas WHERE conta = '$conta'";
+        $linha = $conn->selecionar($sql);
+        return $linha['senha'];
     }
     public function setSenha($senha)
     {
-        $this->senha = $senha;
+        //$this->senha = $senha;
     }
 }
